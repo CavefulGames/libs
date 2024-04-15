@@ -1,0 +1,9 @@
+[package]
+name = "jiwonz/cavefulgames-libs"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+msgpack-luau = "cipharius/msgpack-luau@0.3.0"
+crc16 = "jiwonz/crc16@0.1.0"
