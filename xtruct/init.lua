@@ -78,9 +78,24 @@ local function checkInvalid(struct,props)
 	end
 end
 
-local Xtruct = {}
+export type XtructInstant<T> = T
+export type XtructImpl<T={[string]:any}> = {
+	Struct:T;
+	HashMap:{};
+	__index:XtructImpl<T>;
+	Pack:(self:XtructImpl<T>,instant:XtructInstant<T>)->(string);
+	Unpack:(self:XtructImpl<T>,packedInstant:string)->(XtructInstant<T>);
+	With:(self:XtructImpl<T>,f:(clone:T)->())->(XtructInstant<T>);
+	__call:(self:XtructImpl<T>,fields:T)->(XtructInstant<T>);
+}
+export type Xtruct<T> = typeof(setmetatable({}::{Struct:T},{}::XtructImpl<T>))&(fields:T)->(XtructInstant<T>)
+local Xtruct = {}::XtructImpl
+Xtruct.__index = Xtruct
 
-function Xtruct:Pack(instance:{[string]:any}):string
+function Xtruct:Pack<T>(instant:XtructInstant<T>):string
+	if type(instant) ~= "table" then
+		error(`table expected, got {typeof(instant)}`)
+	end
 	if useHashing then
 		local hashMap = if useHashing == true then self.HashMap else nil
 		if not hashMap then
@@ -92,10 +107,10 @@ function Xtruct:Pack(instance:{[string]:any}):string
 			hashMap = map
 			self.HashMap = map
 		end
-		instance = cloneTableDeep(instance)
-		mapTableDeep(instance,hashMap)
+		instant = cloneTableDeep(instant)::any
+		mapTableDeep(instant,hashMap)
 	end
-	return MsgPack.encode(instance)
+	return MsgPack.encode(instant)
 end
 
 function Xtruct:Unpack(packedInstance:string):{[string]:any}
@@ -126,15 +141,15 @@ function Xtruct:With(f:any):any
 	return new
 end
 
-function Xtruct:New(props:any):any
-	if type(props) == "table" then
+function Xtruct:__call<T>(fields:T):T
+	if type(fields) == "table" then
 		local struct = self.Struct
 		if strictMode then
-			checkInvalid(struct,props)
+			checkInvalid(struct,fields)
 		end
 
 		for k, v in struct do
-			if props[k] ~= nil then
+			if fields[k] ~= nil then
 				continue
 			end
 			if v == none then
@@ -143,51 +158,20 @@ function Xtruct:New(props:any):any
 			if type(v) == "table" then
 				v = deepCopyStruct(v)
 			end
-			props[k] = v
+			fields[k] = v
 		end
 
-		return props
+		return fields
 	else
-		error(`Table or function expected, got {type(props)}`)
+		error(`table expected, got {type(fields)}`)
 	end
 end
 
-function module.new<T>(struct:T)
+function module.new<T>(struct:T):Xtruct<T>
 	if type(struct) ~= "table" then
 		error(`Table expected, got {type(struct)}`)
 	end
-	return setmetatable({Struct=struct},{
-		__index = Xtruct::{
-			Pack:(self:any,instance:{[string]:any})->(string);
-			Unpack:(self:any,packedInstance:string)->({[string]:any});
-			With:(self:any,f:(initialTable:T)->())->(T);
-			New:(self:any,props:T)->(T);
-		};
-		--__call = function(self,props:T):T ---why autocomplete not work ;-;
-		--	if type(props) == "table" then
-		--		if strictMode then
-		--			checkInvalid(struct,props)
-		--		end
-
-		--		for k, v in struct do
-		--			if props[k] ~= nil then
-		--				continue
-		--			end
-		--			if v == none then
-		--				continue
-		--			end
-		--			if type(v) == "table" then
-		--				v = deepCopyStruct(v)
-		--			end
-		--			props[k] = v
-		--		end
-
-		--		return props
-		--	else
-		--		error(`Table or function expected, got {type(props)}`)
-		--	end
-		--end,
-	})
+	return setmetatable({Struct=struct},Xtruct)::Xtruct<T>
 end
 
 function module.setStrictMode(enable:boolean)
