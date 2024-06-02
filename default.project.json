@@ -11,6 +11,9 @@
 				},
 				"xtruct": {
 					"$path": "xtruct"
+				},
+				"rbxzstd": {
+					"$path": "rbxzstd"
 				}
 			}
 		}
