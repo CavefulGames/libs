@@ -1,7 +1,11 @@
+--!optimize 2
+--!native
+
 local JSON = require(script.json)
 
 local HttpService = game:GetService("HttpService")
 
+--// base64 credits to (https://devforum.roblox.com/t/base64-encoding-and-decoding-in-lua/1719860)
 local function fromBase64(data)
 	local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 	data = string.gsub(data, '[^'..b..'=]', '')
