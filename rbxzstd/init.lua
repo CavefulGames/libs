@@ -36,7 +36,7 @@ local function toBase64(data)
 	end)..({ '', '==', '=' })[#data%3+1])
 end
 
-local function compress(buf: buffer): string?
+local function compress(buf: buffer): string? --// WARNING: if the compression ratio is 0, it returns nil
 	local j = HttpService:JSONEncode(buf)
 	local t = JSON.decode(j)
 	local zb64 = t.zbase64
