@@ -1,6 +1,6 @@
 [package]
-name = "jiwonz/rbxzstd"
-version = "0.1.1"
+name = "caveful-games/rbxzstd"
+version = "0.1.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
