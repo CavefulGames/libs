@@ -1,6 +1,9 @@
 # CavefulGames/libs
 Public library packages hosted on public wally registry
 
+# Note
+These libraries are not very common for vary cases unlike kitty's library kit.
+
 # Stable libs
 - W.I.P
 
