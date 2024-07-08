@@ -1,0 +1,3 @@
+[submodule ".lune/git-commit-each"]
+	path = .lune/git-commit-each
+	url = https://github.com/ReloadedInteractive/git-commit-each.git
