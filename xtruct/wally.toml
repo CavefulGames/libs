@@ -3,6 +3,7 @@ name = "caveful-games/xtruct"
 version = "0.1.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
+license = "AGPL-3.0-or-later"
 
 [dependencies]
 msgpack-luau = "cipharius/msgpack-luau@0.3.0"

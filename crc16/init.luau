@@ -2,7 +2,8 @@
 --!strict
 --!native
 
---- credit goes to https://github.com/battlemesh/battlemesh-packages/blob/master/packages/wbm-testbed/files/usr/lib/lua/crc16.lua
+-- credit goes to https://github.com/battlemesh/battlemesh-packages/blob/master/packages/wbm-testbed/files/usr/lib/lua/crc16.lua
+-- licensed in GNU v3 due to source (same license)
 
 return function(str)
     local crc

@@ -4,5 +4,6 @@ version = "0.1.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 description = "Execute the functions in a separate thread, threads are pooled and reused. Credit to lukadev-0/util.luau"
+license = "AGPL-3.0-or-later"
 
 [dependencies]
