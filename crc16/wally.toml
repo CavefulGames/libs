@@ -1,8 +1,8 @@
 [package]
 name = "caveful-games/crc16"
-version = "0.1.2"
+version = "0.1.3"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
-license = "GPL-3.0"
+license = "GPL-2.0"
 
 [dependencies]
