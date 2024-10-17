@@ -1,0 +1,19 @@
+name = "caveful_games/crc16"
+version = "0.1.4"
+description = "16 bit CRC hashing function"
+authors = ["jiwonz"]
+repository = "https://github.com/CavefulGames/libs"
+license = "MIT"
+includes = ["init.luau", ".pesde", "README.md"]
+
+[target]
+environment = "roblox"
+lib = "init.luau"
+build_files = ["init.luau"]
+
+[scripts]
+roblox_sync_config_generator = ".pesde/roblox_sync_config_generator.luau"
+sourcemap_generator = ".pesde/sourcemap_generator.luau"
+
+[indices]
+default = "https://github.com/daimond113/pesde-index"
