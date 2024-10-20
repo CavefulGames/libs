@@ -1,10 +1,10 @@
-name = "caveful_games/crc16"
+name = "caveful_games/threadpool"
 version = "0.1.4"
-description = "16 bit CRC hashing function"
-authors = ["jiwonz"]
+description = "Execute the functions in a separate thread, threads are pooled and reused. Credit to lukadev-0/util.luau"
+authors = ["LukaDev <luka@lukadev.me> (https://lukadev.me/)", "jiwonz"]
 repository = "https://github.com/CavefulGames/libs"
 license = "MIT"
-includes = ["init.luau", ".pesde", "pesde.toml", "README.md"]
+includes = [".pesde", "pesde.toml", "README.md", "init.luau"]
 
 [target]
 environment = "roblox"
