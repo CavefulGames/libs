@@ -6,7 +6,7 @@
 - 원본: [util.luau/threadpool](https://github.com/lukadev-0/util.luau/blob/main/packages/threadpool/init.luau)
 - 원본에서 `pure luau`, `lune` 지원 기능을 제거하였습니다. 덕뿐에 별도의 모듈(std.task)가 필요없어 간소화 되었습니다.
 - 별도의 스레드에서 함수 실행 및 스레드 재사용 지원
-- `CavefulGames/LimeSignal`, `CavefulGames/kitty/kit/rusty`가 의존합니다.
+- `CavefulGames/LimeSignal`, `CavefulGames/kitty/utils/rusty`가 의존합니다.
 
 ## 사용 예시
 ```lua
