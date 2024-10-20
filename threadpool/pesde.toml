@@ -1,5 +1,5 @@
 name = "caveful_games/threadpool"
-version = "0.1.4"
+version = "0.1.5"
 description = "Execute the functions in a separate thread, threads are pooled and reused. Credit to lukadev-0/util.luau"
 authors = ["LukaDev <luka@lukadev.me> (https://lukadev.me/)", "jiwonz"]
 repository = "https://github.com/CavefulGames/libs"
@@ -10,10 +10,6 @@ includes = [".pesde", "pesde.toml", "README.md", "init.luau"]
 environment = "roblox"
 lib = "init.luau"
 build_files = ["init.luau"]
-
-[scripts]
-roblox_sync_config_generator = ".pesde/roblox_sync_config_generator.luau"
-sourcemap_generator = ".pesde/sourcemap_generator.luau"
 
 [indices]
 default = "https://github.com/daimond113/pesde-index"
