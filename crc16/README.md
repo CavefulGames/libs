@@ -1,8 +1,8 @@
 # CRC16
 16비트 CRC 해시 함수
 
-# LICENSE
-## skynet
+## LICENSE
+### skynet
 - original crc16 source code from [skynet](https://github.com/cloudwu/skynet/blob/master/lualib/skynet/db/redis/crc16.lua)
 ```md
 The MIT License (MIT)
