@@ -16,7 +16,7 @@
 					"$path": "rbxzstd"
 				},
 				"threadpool": {
-					"$path": "threadpool"
+					"$path": "threadpool/lib.luau"
 				}
 			}
 		}
