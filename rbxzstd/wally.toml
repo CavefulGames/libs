@@ -1,10 +1,10 @@
 [package]
 name = "caveful-games/rbxzstd"
-version = "0.1.5"
+version = "0.1.6"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 license = "MIT"
 
 [dependencies]
-json = "seaofvoices/luau-json@0.1.1"
+luau-json = "seaofvoices/luau-json@0.1.1"
 base64 = "reselim/base64@3.0.0"
